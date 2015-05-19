@@ -1,0 +1,26 @@
+{
+    "version": "1.0.0",
+    "name": "com.danmorton.cordova.plugin.mopub",
+    "cordova_name": "Cordova Mopub Plugin",
+    "description": "Cordova Plugin for Mopub ad network mediator.",
+    "license": "Apache 2.0",
+    "repo": "https://github.com/danmorton/cordova-mopub-plugin",
+    "keywords": [
+        "mopub",
+        "ads",
+        "monetization",
+        "games",
+        "ios",
+        "android"
+    ],
+    "platforms": [
+        "android",
+        "ios"
+    ],
+    "engines": [
+        {
+            "name": "cordova",
+            "version": ">=3.0.0"
+        }
+    ]
+}

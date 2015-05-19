@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.danmorton.cordova.plugin.mopub"
+    version="0.3.0">
+
+    <name>Cordova Mopub Plugin</name>
+    <description>Cordova Plugin for Mopub ad network mediator</description>
+    <keywords>Mopub,ads,monetization,games,ios,android</keywords>
+    <repo>https://github.com/danmorton/cordova-mopub-plugin</repo>
+	<issue>https://github.com/danmorton/cordova-mopub-plugin/issues</issue>
+	
+    <author>Dan Morton</author>
+    <license>Apache 2.0</license>
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+    <js-module src="www/mopub.js" name="Mopub">
+        <clobbers target="window.MoPub" />
+    </js-module>
+
+	<!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="MopubPlugin">
+                <param name="android-package" value="com.danmorton.cordova.plugin.mopub.MopubPlugin"/>
+            </feature>
+        </config-file>
+        
+		<!-- cordova implementation of the plugin -->                 
+        <source-file src="src/android/MopubPlugin.java" target-dir="src/com/danmorton/cordova/plugin/mopub" />
+		        
+		<!-- mopub's official plugin -->    
+        <source-file src="libs/android/mopub-sdk.jar" target-dir="libs" />
+		<!-- mopub custom networks -->
+			<!-- AdColony -->		
+		<source-file src="libs/android/AdNetworks/AdColony/AdColonyInterstitial.java" target-dir="src/com/mopub/mobileads" />
+		<source-file src="libs/android/AdNetworks/AdColony/AdColonyRewardedVideo.java" target-dir="src/com/mopub/mobileads" />
+        <source-file src="libs/android/AdNetworks/AdColony/adcolony.jar" target-dir="libs" />
+        <source-file src="libs/android/AdNetworks/AdColony/armeabi/libImmEndpointWarpJ.so" target-dir="libs/armeabi" />
+			<!-- Chartboost -->        
+		<source-file src="libs/android/AdNetworks/Chartboost/ChartboostInterstitial.java" target-dir="src/com/mopub/mobileads" />
+		<source-file src="libs/android/AdNetworks/Chartboost/ChartboostRewardedVideo.java" target-dir="src/com/mopub/mobileads" />
+        <source-file src="libs/android/AdNetworks/Chartboost/chartboost.jar" target-dir="libs" />
+			<!-- Facebook -->        
+		<source-file src="libs/android/AdNetworks/Facebook/FacebookBanner.java" target-dir="src/com/mopub/mobileads" />
+		<source-file src="libs/android/AdNetworks/Facebook/FacebookInterstitial.java" target-dir="src/com/mopub/mobileads" />
+		<source-file src="libs/android/AdNetworks/Facebook/FacebookNative.java" target-dir="src/com/mopub/nativeads" />
+        <source-file src="libs/android/AdNetworks/Facebook/AudienceNetwork.jar" target-dir="libs" />
+			<!-- GooglePlay Services -->    
+		<source-file src="libs/android/AdNetworks/GooglePlay/GooglePlayServicesBanner.java" target-dir="src/com/mopub/mobileads" />
+		<source-file src="libs/android/AdNetworks/GooglePlay/GooglePlayServicesInterstitial.java" target-dir="src/com/mopub/mobileads" />    
+			<!-- InMobi -->       
+		<source-file src="libs/android/AdNetworks/InMobi/InMobiBanner.java" target-dir="src/com/mopub/simpleadsdemo" />
+		<source-file src="libs/android/AdNetworks/InMobi/InMobiInterstitial.java" target-dir="src/com/mopub/simpleadsdemo" />
+		<source-file src="libs/android/AdNetworks/InMobi/InMobiNative.java" target-dir="src/com/mopub/nativeads" />     			
+        <source-file src="libs/android/AdNetworks/InMobi/InMobi.jar" target-dir="libs" />
+			<!-- Millennial --> 
+		<source-file src="libs/android/AdNetworks/Millennial/MillennialBanner.java" target-dir="src/com/mopub/mobileads" />
+		<source-file src="libs/android/AdNetworks/Millennial/MillennialInterstitial.java" target-dir="src/com/mopub/mobileads" />
+        <source-file src="libs/android/AdNetworks/Millennial/armeabi/libnmsp_speex.so" target-dir="libs/armeabi" />
+        <source-file src="libs/android/AdNetworks/Millennial/MMSDK.jar" target-dir="libs" />
+        <source-file src="libs/android/AdNetworks/Millennial/nmdp_speech_kit.jar" target-dir="libs" />
+			<!-- Vungle -->       
+		<source-file src="libs/android/AdNetworks/Vungle/VungleInterstitial.java" target-dir="src/com/mopub/mobileads" />
+		<source-file src="libs/android/AdNetworks/Vungle/VungleRewardedVideo.java" target-dir="src/com/mopub/mobileads" />
+        <source-file src="libs/android/AdNetworks/Vungle/dagger-1.2.2.jar" target-dir="libs" />
+        <source-file src="libs/android/AdNetworks/Vungle/javax.inject-1.jar" target-dir="libs" />
+        <source-file src="libs/android/AdNetworks/Vungle/nineoldandroids-2.4.0.jar" target-dir="libs" />
+        <source-file src="libs/android/AdNetworks/Vungle/support-v4-18.0.0.jar" target-dir="libs" />
+        <source-file src="libs/android/AdNetworks/Vungle/vungle-publisher-adaptive-id-3.3.0.jar" target-dir="libs" />
+
+        <!-- google play services -->
+        <framework src="com.google.android.gms:play-services-plus:+" />
+        <framework src="com.google.android.gms:play-services-identity:+" />
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<activity android:name="com.mopub.mobileads.MoPubActivity" android:configChanges="keyboardHidden|orientation"/>
+			<activity android:name="com.mopub.mobileads.MraidActivity" android:configChanges="keyboardHidden|orientation"/>
+			<activity android:name="com.mopub.common.MoPubBrowser" android:configChanges="keyboardHidden|orientation"/>
+			<activity android:name="com.mopub.mobileads.MraidVideoPlayerActivity" android:configChanges="keyboardHidden|orientation"/>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+			<uses-permission android:name="android.permission.INTERNET" />
+			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />        
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        </config-file>
+     </platform>
+     
+     <!-- ios -->
+     <platform name="ios">
+         <config-file target="config.xml" parent="/*">
+             <feature name="MoPub">
+                 <param name="ios-package" value="MopubPlugin" />
+             </feature>
+         </config-file>
+		<!-- cordova implementation of the plugin -->
+        <source-file src="src/ios/MopubPlugin.m"/>
+         
+		<!-- Mopub Official SDK -->             
+		<framework src="libs/ios/MopubSDK.framework" custom="true" />
+		<!-- Mopub resources -->
+		<resource-file src="libs/ios/MopubSDK.framework/MPCloseButtonX.png"/>
+		<resource-file src="libs/ios/MopubSDK.framework/MPCloseButtonX@2x.png"/>
+		<resource-file src="libs/ios/MopubSDK.framework/MRAID.bundle"/>
+		<!-- Mopub AdNetwork Adapters & SDKs -->             
+			<!-- AdColony -->
+		<framework src="libs/AdNetworks/AdColony/AdColony.framework" custom="true" />
+			<!-- Chartboost -->
+		<framework src="libs/AdNetworks/Chartboost/Chartboost.framework" custom="true" />
+			<!-- Facebook -->
+		<framework src="libs/AdNetworks/Facebook/FBAudienceNetwork.framework" custom="true" />
+			<!-- GoogleAdMob -->
+		<framework src="libs/AdNetworks/GoogleAdMob/GoogleMobileAds.framework" custom="true" />
+			<!-- Greystripe, may cause rejection for AddressBook framework -->
+			<!-- Removed due to likilyhood of rejections...
+		<header-file src="libs/AdNetworks/Greystripe/GSAd.h"/>
+		<header-file src="libs/AdNetworks/Greystripe/GSAdDelegate.h"/>
+		<header-file src="libs/AdNetworks/Greystripe/GSBannerAdView.h"/>
+		<header-file src="libs/AdNetworks/Greystripe/GSFullscreenAd.h"/>
+		<header-file src="libs/AdNetworks/Greystripe/GSLeaderboardAdView.h"/>
+		<header-file src="libs/AdNetworks/Greystripe/GSMediumRectangleAdView.h"/>
+		<header-file src="libs/AdNetworks/Greystripe/GSMobileBannerAdView.h"/>
+		<header-file src="libs/AdNetworks/Greystripe/GSSDKInfo.h"/>
+		<framework src="libs/AdNetworks/Greystripe/libGreystripeSDK.a" custom="true" />
+			-->
+			<!-- iAd: nothing todo... -->
+			<!-- InMobi -->
+		<header-file src="libs/AdNetworks/InMobi/IMBanner.h"/>
+		<header-file src="libs/AdNetworks/InMobi/IMBannerDelegate.h"/>
+		<header-file src="libs/AdNetworks/InMobi/IMConstants.h"/>
+		<header-file src="libs/AdNetworks/InMobi/IMError.h"/>
+		<header-file src="libs/AdNetworks/InMobi/IMIncentivisedDelegate.h"/>
+		<header-file src="libs/AdNetworks/InMobi/IMInterstitial.h"/>
+		<header-file src="libs/AdNetworks/InMobi/IMInterstitialDelegate.h"/>
+		<header-file src="libs/AdNetworks/InMobi/IMNative.h"/>
+		<header-file src="libs/AdNetworks/InMobi/IMNativeDelegate.h"/>
+		<header-file src="libs/AdNetworks/InMobi/InMobi.h"/>
+		<header-file src="libs/AdNetworks/InMobi/InMobiAnalytics.h"/>
+		<framework src="libs/AdNetworks/InMobi/libInMobi.a" custom="true" />
+			<!-- Millennial -->
+		<framework src="libs/AdNetworks/Millennial/MillennialMedia.framework" custom="true" />
+		<framework src="libs/AdNetworks/Millennial/SpeechKit.framework" custom="true" />
+			<!-- Vungle -->
+		<framework src="libs/AdNetworks/Vungle/VungleSDK.embeddedframework/VungleSDK.framework" custom="true" />
+		<resource-file src="libs/AdNetworks/Vungle/VungleSDK.embeddedframework/Resources/__vungle.db"/>
+		<resource-file src="libs/AdNetworks/Vungle/VungleSDK.embeddedframework/Resources/vg_close.png"/>
+		<resource-file src="libs/AdNetworks/Vungle/VungleSDK.embeddedframework/Resources/vg_cta.png"/>
+		<resource-file src="libs/AdNetworks/Vungle/VungleSDK.embeddedframework/Resources/vg_mute_off.png"/>
+		<resource-file src="libs/AdNetworks/Vungle/VungleSDK.embeddedframework/Resources/vg_mute_on.png"/>
+		<resource-file src="libs/AdNetworks/Vungle/VungleSDK.embeddedframework/Resources/vg_timer.png"/>	
+		<!-- Framework dependencies -->		
+		<!-- dependencies for greystripe, these can cause rejections from Apple... -->	
+			<!--
+        <framework src="AddressBook.framework" weak="true"/>
+        <framework src="AddressBookUI.framework" weak="true"/> 
+        	-->
+		<!-- END: dependencies for greystripe -->		
+        <framework src="AdSupport.framework" weak="true"/>
+        <framework src="AudioToolbox.framework"/>
+        <framework src="AVFoundation.framework"/>
+        <framework src="CoreGraphics.framework"/>
+        <framework src="CoreLocation.framework"/>
+        <framework src="CoreMedia.framework"/>
+        <framework src="CoreMotion.framework"/>
+        <framework src="CoreTelephony.framework"/>
+        <framework src="EventKit.framework"/>
+        <framework src="EventKitUI.framework"/>
+        <framework src="Foundation.framework"/>
+        <framework src="iAd.framework"/>
+        <framework src="libsqlite3.0.dylib"/>
+        <framework src="libz.1.2.5.dylib"/>
+        <framework src="MediaPlayer.framework"/>
+        <framework src="MessageUI.framework"/>
+        <framework src="MobileCoreServices.framework"/>
+        <framework src="PassKit.framework" weak="true"/>
+        <framework src="QuartzCore.framework"/>
+        <framework src="Social.framework" weak="true"/>
+        <framework src="StoreKit.framework" weak="true"/>
+        <framework src="SystemConfiguration.framework"/>
+        <framework src="WebKit.framework" weak="true"/>
+        <framework src="UIKit.framework"/>	
+		<!-- END: Framework dependencies -->			        
+	</platform>
+
+</plugin>
+
+
+</plugin>
