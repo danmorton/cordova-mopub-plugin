@@ -107,50 +107,50 @@
 		<resource-file src="libs/ios/MopubSDK.framework/MRAID.bundle"/>
 		<!-- Mopub AdNetwork Adapters & SDKs -->             
 			<!-- AdColony -->
-		<framework src="libs/AdNetworks/AdColony/AdColony.framework" custom="true" />
+		<framework src="libs/ios/AdNetworks/AdColony/AdColony.framework" custom="true" />
 			<!-- Chartboost -->
-		<framework src="libs/AdNetworks/Chartboost/Chartboost.framework" custom="true" />
+		<framework src="libs/ios/AdNetworks/Chartboost/Chartboost.framework" custom="true" />
 			<!-- Facebook -->
-		<framework src="libs/AdNetworks/Facebook/FBAudienceNetwork.framework" custom="true" />
+		<framework src="libs/ios/AdNetworks/Facebook/FBAudienceNetwork.framework" custom="true" />
 			<!-- GoogleAdMob -->
-		<framework src="libs/AdNetworks/GoogleAdMob/GoogleMobileAds.framework" custom="true" />
+		<framework src="libs/ios/AdNetworks/GoogleAdMob/GoogleMobileAds.framework" custom="true" />
 			<!-- Greystripe, may cause rejection for AddressBook framework -->
 			<!-- Removed due to likilyhood of rejections...
-		<header-file src="libs/AdNetworks/Greystripe/GSAd.h"/>
-		<header-file src="libs/AdNetworks/Greystripe/GSAdDelegate.h"/>
-		<header-file src="libs/AdNetworks/Greystripe/GSBannerAdView.h"/>
-		<header-file src="libs/AdNetworks/Greystripe/GSFullscreenAd.h"/>
-		<header-file src="libs/AdNetworks/Greystripe/GSLeaderboardAdView.h"/>
-		<header-file src="libs/AdNetworks/Greystripe/GSMediumRectangleAdView.h"/>
-		<header-file src="libs/AdNetworks/Greystripe/GSMobileBannerAdView.h"/>
-		<header-file src="libs/AdNetworks/Greystripe/GSSDKInfo.h"/>
-		<framework src="libs/AdNetworks/Greystripe/libGreystripeSDK.a" custom="true" />
+		<header-file src="libs/ios/AdNetworks/Greystripe/GSAd.h"/>
+		<header-file src="libs/ios/AdNetworks/Greystripe/GSAdDelegate.h"/>
+		<header-file src="libs/ios/AdNetworks/Greystripe/GSBannerAdView.h"/>
+		<header-file src="libs/ios/AdNetworks/Greystripe/GSFullscreenAd.h"/>
+		<header-file src="libs/ios/AdNetworks/Greystripe/GSLeaderboardAdView.h"/>
+		<header-file src="libs/ios/AdNetworks/Greystripe/GSMediumRectangleAdView.h"/>
+		<header-file src="libs/ios/AdNetworks/Greystripe/GSMobileBannerAdView.h"/>
+		<header-file src="libs/ios/AdNetworks/Greystripe/GSSDKInfo.h"/>
+		<framework src="libs/ios/AdNetworks/Greystripe/libGreystripeSDK.a" custom="true" />
 			-->
 			<!-- iAd: nothing todo... -->
 			<!-- InMobi -->
-		<header-file src="libs/AdNetworks/InMobi/IMBanner.h"/>
-		<header-file src="libs/AdNetworks/InMobi/IMBannerDelegate.h"/>
-		<header-file src="libs/AdNetworks/InMobi/IMConstants.h"/>
-		<header-file src="libs/AdNetworks/InMobi/IMError.h"/>
-		<header-file src="libs/AdNetworks/InMobi/IMIncentivisedDelegate.h"/>
-		<header-file src="libs/AdNetworks/InMobi/IMInterstitial.h"/>
-		<header-file src="libs/AdNetworks/InMobi/IMInterstitialDelegate.h"/>
-		<header-file src="libs/AdNetworks/InMobi/IMNative.h"/>
-		<header-file src="libs/AdNetworks/InMobi/IMNativeDelegate.h"/>
-		<header-file src="libs/AdNetworks/InMobi/InMobi.h"/>
-		<header-file src="libs/AdNetworks/InMobi/InMobiAnalytics.h"/>
-		<framework src="libs/AdNetworks/InMobi/libInMobi.a" custom="true" />
+		<header-file src="libs/ios/AdNetworks/InMobi/IMBanner.h"/>
+		<header-file src="libs/ios/AdNetworks/InMobi/IMBannerDelegate.h"/>
+		<header-file src="libs/ios/AdNetworks/InMobi/IMConstants.h"/>
+		<header-file src="libs/ios/AdNetworks/InMobi/IMError.h"/>
+		<header-file src="libs/ios/AdNetworks/InMobi/IMIncentivisedDelegate.h"/>
+		<header-file src="libs/ios/AdNetworks/InMobi/IMInterstitial.h"/>
+		<header-file src="libs/ios/AdNetworks/InMobi/IMInterstitialDelegate.h"/>
+		<header-file src="libs/ios/AdNetworks/InMobi/IMNative.h"/>
+		<header-file src="libs/ios/AdNetworks/InMobi/IMNativeDelegate.h"/>
+		<header-file src="libs/ios/AdNetworks/InMobi/InMobi.h"/>
+		<header-file src="libs/ios/AdNetworks/InMobi/InMobiAnalytics.h"/>
+		<framework src="libs/ios/AdNetworks/InMobi/libInMobi.a" custom="true" />
 			<!-- Millennial -->
-		<framework src="libs/AdNetworks/Millennial/MillennialMedia.framework" custom="true" />
-		<framework src="libs/AdNetworks/Millennial/SpeechKit.framework" custom="true" />
+		<framework src="libs/ios/AdNetworks/Millennial/MillennialMedia.framework" custom="true" />
+		<framework src="libs/ios/AdNetworks/Millennial/SpeechKit.framework" custom="true" />
 			<!-- Vungle -->
-		<framework src="libs/AdNetworks/Vungle/VungleSDK.embeddedframework/VungleSDK.framework" custom="true" />
-		<resource-file src="libs/AdNetworks/Vungle/VungleSDK.embeddedframework/Resources/__vungle.db"/>
-		<resource-file src="libs/AdNetworks/Vungle/VungleSDK.embeddedframework/Resources/vg_close.png"/>
-		<resource-file src="libs/AdNetworks/Vungle/VungleSDK.embeddedframework/Resources/vg_cta.png"/>
-		<resource-file src="libs/AdNetworks/Vungle/VungleSDK.embeddedframework/Resources/vg_mute_off.png"/>
-		<resource-file src="libs/AdNetworks/Vungle/VungleSDK.embeddedframework/Resources/vg_mute_on.png"/>
-		<resource-file src="libs/AdNetworks/Vungle/VungleSDK.embeddedframework/Resources/vg_timer.png"/>	
+		<framework src="libs/ios/AdNetworks/Vungle/VungleSDK.embeddedframework/VungleSDK.framework" custom="true" />
+		<resource-file src="libs/ios/AdNetworks/Vungle/VungleSDK.embeddedframework/Resources/__vungle.db"/>
+		<resource-file src="libs/ios/AdNetworks/Vungle/VungleSDK.embeddedframework/Resources/vg_close.png"/>
+		<resource-file src="libs/ios/AdNetworks/Vungle/VungleSDK.embeddedframework/Resources/vg_cta.png"/>
+		<resource-file src="libs/ios/AdNetworks/Vungle/VungleSDK.embeddedframework/Resources/vg_mute_off.png"/>
+		<resource-file src="libs/ios/AdNetworks/Vungle/VungleSDK.embeddedframework/Resources/vg_mute_on.png"/>
+		<resource-file src="libs/ios/AdNetworks/Vungle/VungleSDK.embeddedframework/Resources/vg_timer.png"/>	
 		<!-- Framework dependencies -->		
 		<!-- dependencies for greystripe, these can cause rejections from Apple... -->	
 			<!--
