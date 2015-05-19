@@ -2,8 +2,8 @@
 	var exec = require('cordova/exec');
 	var cordova = require('cordova');
 	Mopub.showInterstitial = function(sucessCallback, failCallback, adunitId) {
-		exec(sucessCallback, failCallback, "ChartboostPlugin", "showInterstitial", [adunitId]);
+		exec(sucessCallback, failCallback, "MopubPlugin", "showInterstitial", [adunitId]);
 	}
     Mopub.cacheInterstitial = function(sucessCallback, failCallback, adunitId) {
-        exec(sucessCallback, failCallback, "ChartboostPlugin", "cacheInterstitial", [adunitId]);
+        exec(sucessCallback, failCallback, "MopubPlugin", "cacheInterstitial", [adunitId]);
     }

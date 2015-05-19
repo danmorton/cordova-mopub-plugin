@@ -13,7 +13,7 @@ The plugin has the following calls:
 This is called to cache/preload the interstitial. If this is not called first likely will fail on first show...
 Parameters: successCallback, failureCallback, mopub ad unit id
 ```JavaScript
-	Chartboost.showInterstitial(success, fail, location);
+	Chartboost.showInterstitial(success, fail, adunitId);
 ```
 This is called to show the interstitial Ad.
 Parameters: successCallback, failureCallback, mopub ad unit id
