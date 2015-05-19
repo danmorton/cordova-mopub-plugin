@@ -116,7 +116,7 @@
 {
 	[self doFailureCallbackForFunctionId:"cacheInterstitial"];
 	[self doFailureCallbackForFunctionId:"showInterstitial"];
-	[self.interstitial loadAd];//try to load a new one???
+//	[self.interstitial loadAd];//try to load a new one??? could get loopy
 }
 
 - (void)interstitialDidAppear:(MPInterstitialAdController *)interstitial
@@ -128,6 +128,7 @@
 - (void)interstitialDidDisappear:(MPInterstitialAdController *)interstitial
 {
 	[self fireEvent:@"interstitialDismissed" data:nil];
+	[self.interstitial loadAd];//load another...
 }
 
 - (void)interstitialDidReceiveTapEvent:(MPInterstitialAdController *)interstitial

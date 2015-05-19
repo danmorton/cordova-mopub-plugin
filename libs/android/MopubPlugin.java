@@ -149,6 +149,7 @@ public class MopubPlugin extends CordovaPlugin implements InterstitialAdListener
     public void onInterstitialFailed(MoPubInterstitial interstitial, MoPubErrorCode errorCode) {
 		this.doFailureCallback(location, ACTION_CACHE_INTERSTITIAL);
 		this.doFailureCallback(location, ACTION_SHOW_INTERSTITIAL);
+//		mMoPubInterstitial.load();//load another one? could be loop?
     }
 
     @Override
@@ -165,5 +166,6 @@ public class MopubPlugin extends CordovaPlugin implements InterstitialAdListener
     @Override
     public void onInterstitialDismissed(MoPubInterstitial interstitial) {
 		this.fireEvent("interstitialDismissed", null);
+		mMoPubInterstitial.load();//load another one...
     }
 }
