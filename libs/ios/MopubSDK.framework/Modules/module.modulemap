@@ -1,6 +1,0 @@
-framework module MopubSDK {
-  umbrella header "MopubSDK.h"
-
-  export *
-  module * { export * }
-}

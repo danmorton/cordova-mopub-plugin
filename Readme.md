@@ -39,11 +39,8 @@ Update Mopub SDK
 
 iOS Mopub SDK Compilation
 
-- Create new Xcode project for Cocoa Touch Framework
-- Add Mopub SDK including desired Ad Libraries
-- build and replace framework at /libs/ios/MopubSDK.framework
-- Add/Remove/Update third party libraries as necessary.
-- - if adding/removing you need to update plugin.xml accordingly
+- download latest SDK from mopub github
+- follow this tutorial: ``` https://github.com/jverkoey/iOS-Framework ```
 
 Android Mopub SDK Compilation
 

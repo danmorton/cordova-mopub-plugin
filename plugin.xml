@@ -102,9 +102,10 @@
 		<!-- Mopub Official SDK -->             
 		<framework src="libs/ios/MopubSDK.framework" custom="true" />
 		<!-- Mopub resources -->
-		<resource-file src="libs/ios/MopubSDK.framework/MPCloseButtonX.png"/>
-		<resource-file src="libs/ios/MopubSDK.framework/MPCloseButtonX@2x.png"/>
-		<resource-file src="libs/ios/MopubSDK.framework/MRAID.bundle"/>
+		<resource-file src="libs/ios/MopubSDK.framework/Resources/MPCloseButtonX.png"/>
+		<resource-file src="libs/ios/MopubSDK.framework/Resources/MPCloseButtonX@2x.png"/>
+		<resource-file src="libs/ios/MopubSDK.framework/Resources/MPCloseButtonX@3x.png"/>
+		<resource-file src="libs/ios/MopubSDK.framework/Resources/MRAID.bundle"/>
 		<!-- Mopub AdNetwork Adapters & SDKs -->             
 			<!-- AdColony -->
 		<framework src="libs/ios/AdNetworks/AdColony/AdColony.framework" custom="true" />
