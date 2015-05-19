@@ -124,7 +124,7 @@
 		<header-file src="libs/ios/AdNetworks/Greystripe/GSMediumRectangleAdView.h"/>
 		<header-file src="libs/ios/AdNetworks/Greystripe/GSMobileBannerAdView.h"/>
 		<header-file src="libs/ios/AdNetworks/Greystripe/GSSDKInfo.h"/>
-		<framework src="libs/ios/AdNetworks/Greystripe/libGreystripeSDK.a" custom="true" />
+		<source-file src="libs/ios/AdNetworks/Greystripe/libGreystripeSDK.a" framework="true" />
 			-->
 			<!-- iAd: nothing todo... -->
 			<!-- InMobi -->
@@ -139,7 +139,7 @@
 		<header-file src="libs/ios/AdNetworks/InMobi/IMNativeDelegate.h"/>
 		<header-file src="libs/ios/AdNetworks/InMobi/InMobi.h"/>
 		<header-file src="libs/ios/AdNetworks/InMobi/InMobiAnalytics.h"/>
-		<framework src="libs/ios/AdNetworks/InMobi/libInMobi.a" custom="true" />
+		<source-file src="libs/ios/AdNetworks/InMobi/libInMobi.a" framework="true" />
 			<!-- Millennial -->
 		<framework src="libs/ios/AdNetworks/Millennial/MillennialMedia.framework" custom="true" />
 		<framework src="libs/ios/AdNetworks/Millennial/SpeechKit.framework" custom="true" />
