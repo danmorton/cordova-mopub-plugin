@@ -3,7 +3,9 @@
 #import <CommonCrypto/CommonDigest.h>
 #import <AdSupport/AdSupport.h>
 
-#import "MPInterstitialAdController.h"
+#import <MopubSDK/MPInterstitialAdController.h>
+
+//#import "MPInterstitialAdController.h"
 
 @interface MopubPlugin : CDVPlugin <MPInterstitialAdControllerDelegate>{
 //	NSMutableArray* _queue;
@@ -11,8 +13,8 @@
 }
 @property (nonatomic, strong) MPInterstitialAdController *interstitial;
 
--(void) init:(CDVInvokedUrlCommand*)command;
 -(void) showInterstitial:(CDVInvokedUrlCommand*)command;
+-(void) cacheInterstitial:(CDVInvokedUrlCommand*)command;
 
 @end
 
@@ -75,53 +77,45 @@
 	[self registerCallback:command withFunctionID:@"showInterstitial"];
 	NSString* ad_unit_id = [command.arguments objectAtIndex:0];
 	if (self.interstitial == nil) {
-		self.interstitial = [[MPSampleAppInstanceProvider sharedProvider] buildMPInterstitialAdControllerWithAdUnitID:ad_unit_id];
+        self.interstitial = [MPInterstitialAdController interstitialAdControllerForAdUnitId:ad_unit_id];
 		self.interstitial.delegate = self;
 	}
-	[self.interstitial showFromViewController:self];
+	[self.interstitial showFromViewController:self.viewController];
 }
 
 -(void) cacheInterstitial:(CDVInvokedUrlCommand*)command {
 	[self registerCallback:command withFunctionID:@"cacheInterstitial"];
 	NSString* ad_unit_id = [command.arguments objectAtIndex:0];
 	if (self.interstitial == nil) {
-		self.interstitial = [[MPSampleAppInstanceProvider sharedProvider] buildMPInterstitialAdControllerWithAdUnitID:ad_unit_id];
+        self.interstitial = [MPInterstitialAdController interstitialAdControllerForAdUnitId:ad_unit_id];
 		self.interstitial.delegate = self;
 	}
 	[self.interstitial loadAd];
-}
-
-#pragma mark -
-#pragma mark Delegates
-
-// Called after an interstitial has been displayed on the screen.
--(void) didDisplayInterstitial:(CBLocation)location{
-	[self doSuccessCallbackForFunctionId:"showInterstitial"];
 }
 
 #pragma mark - <MPInterstitialAdControllerDelegate>
 
 - (void)interstitialDidLoadAd:(MPInterstitialAdController *)interstitial
 {
-	[self doSuccessCallbackForFunctionId:"cacheInterstitial"];
+	[self doSuccessCallbackForFunctionId:@"cacheInterstitial"];
 }
 
 - (void)interstitialDidFailToLoadAd:(MPInterstitialAdController *)interstitial
 {
-	[self doFailureCallbackForFunctionId:"cacheInterstitial"];
-	[self doFailureCallbackForFunctionId:"showInterstitial"];
+	[self doFailureCallbackForFunctionId:@"cacheInterstitial"];
+	[self doFailureCallbackForFunctionId:@"showInterstitial"];
 }
 
 - (void)interstitialDidExpire:(MPInterstitialAdController *)interstitial
 {
-	[self doFailureCallbackForFunctionId:"cacheInterstitial"];
-	[self doFailureCallbackForFunctionId:"showInterstitial"];
+	[self doFailureCallbackForFunctionId:@"cacheInterstitial"];
+	[self doFailureCallbackForFunctionId:@"showInterstitial"];
 //	[self.interstitial loadAd];//try to load a new one??? could get loopy
 }
 
 - (void)interstitialDidAppear:(MPInterstitialAdController *)interstitial
 {
-	[self doSuccessCallbackForFunctionId:"showInterstitial"];
+	[self doSuccessCallbackForFunctionId:@"showInterstitial"];
 	[self fireEvent:@"interstitialShown" data:nil];
 }
 
