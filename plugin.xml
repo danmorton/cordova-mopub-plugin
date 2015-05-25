@@ -92,7 +92,7 @@
      <!-- ios -->
      <platform name="ios">
          <config-file target="config.xml" parent="/*">
-             <feature name="Mopub">
+             <feature name="MopubPlugin">
                  <param name="ios-package" value="MopubPlugin" />
              </feature>
          </config-file>
