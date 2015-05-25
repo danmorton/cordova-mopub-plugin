@@ -181,6 +181,7 @@
         <framework src="Social.framework" weak="true"/>
         <framework src="StoreKit.framework" weak="true"/>
         <framework src="SystemConfiguration.framework"/>
+        <framework src="Twitter.framework" weak="true"/>        
         <framework src="WebKit.framework" weak="true"/>
         <framework src="UIKit.framework"/>	
 		<!-- END: Framework dependencies -->			        
