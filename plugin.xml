@@ -16,7 +16,7 @@
         <engine name="cordova" version=">=3.0.0" />
     </engines>
     <js-module src="www/mopub.js" name="Mopub">
-        <clobbers target="window.MoPub" />
+        <clobbers target="window.Mopub" />
     </js-module>
 
 	<!-- android -->
@@ -92,7 +92,7 @@
      <!-- ios -->
      <platform name="ios">
          <config-file target="config.xml" parent="/*">
-             <feature name="MoPub">
+             <feature name="Mopub">
                  <param name="ios-package" value="MopubPlugin" />
              </feature>
          </config-file>
