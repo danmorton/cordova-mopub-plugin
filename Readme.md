@@ -39,8 +39,7 @@ Update Mopub SDK
 
 iOS Mopub SDK Compilation
 
-- download latest SDK from mopub github
-- follow this tutorial: ``` https://github.com/jverkoey/iOS-Framework ```
+- see: ```https://github.com/danmorton/mopub-framework```
 
 Android Mopub SDK Compilation
 
