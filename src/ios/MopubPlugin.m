@@ -48,6 +48,9 @@
 }
 
 -(void) registerCallback:(CDVInvokedUrlCommand*)command withFunctionID:(NSString*)funcId {
+    if (_queue == nil) {
+        _queue = [NSMutableDictionary new];
+    }
 	NSString* callbackId = command.callbackId;
     [_queue setObject: callbackId forKey:funcId];
 }
@@ -78,7 +81,12 @@
 	NSString* ad_unit_id = [command.arguments objectAtIndex:0];
 	if (self.interstitial == nil) {
         self.interstitial = [MPInterstitialAdController interstitialAdControllerForAdUnitId:ad_unit_id];
-		self.interstitial.delegate = self;
+        self.interstitial.delegate = self;
+        /**
+         * This next line allows us to create an order in mopub to target this call and show hopefully only static interstitials rather than videos.
+         * by Default it does nothing. So don't worry.
+         */
+        [self.interstitial setKeywords:@"interstitialsOnly:true"];
 	}
 	[self.interstitial showFromViewController:self.viewController];
 }
@@ -89,6 +97,11 @@
 	if (self.interstitial == nil) {
         self.interstitial = [MPInterstitialAdController interstitialAdControllerForAdUnitId:ad_unit_id];
 		self.interstitial.delegate = self;
+        /**
+         * This next line allows us to create an order in mopub to target this call and show hopefully only static interstitials rather than videos.
+         * by Default it does nothing. So don't worry.
+         */
+        [self.interstitial setKeywords:@"interstitialsOnly:true"];
 	}
 	[self.interstitial loadAd];
 }
