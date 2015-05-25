@@ -31,22 +31,22 @@
         <source-file src="src/android/MopubPlugin.java" target-dir="src/com/danmorton/cordova/plugin/mopub" />
 		        
 		<!-- mopub's official plugin -->    
-        <source-file src="libs/android/mopub-sdk.jar" target-dir="libs" />
+        <lib-file src="libs/android/mopub-sdk.jar" />
 		<!-- mopub custom networks -->
 			<!-- AdColony -->		
 		<source-file src="libs/android/AdNetworks/AdColony/AdColonyInterstitial.java" target-dir="src/com/mopub/mobileads" />
 		<source-file src="libs/android/AdNetworks/AdColony/AdColonyRewardedVideo.java" target-dir="src/com/mopub/mobileads" />
-        <source-file src="libs/android/AdNetworks/AdColony/adcolony.jar" target-dir="libs" />
+        <lib-file src="libs/android/AdNetworks/AdColony/adcolony.jar" />
         <source-file src="libs/android/AdNetworks/AdColony/armeabi/libImmEndpointWarpJ.so" target-dir="libs/armeabi" />
 			<!-- Chartboost -->        
 		<source-file src="libs/android/AdNetworks/Chartboost/ChartboostInterstitial.java" target-dir="src/com/mopub/mobileads" />
 		<source-file src="libs/android/AdNetworks/Chartboost/ChartboostRewardedVideo.java" target-dir="src/com/mopub/mobileads" />
-        <source-file src="libs/android/AdNetworks/Chartboost/chartboost.jar" target-dir="libs" />
+        <lib-file src="libs/android/AdNetworks/Chartboost/chartboost.jar" />
 			<!-- Facebook -->        
 		<source-file src="libs/android/AdNetworks/Facebook/FacebookBanner.java" target-dir="src/com/mopub/mobileads" />
 		<source-file src="libs/android/AdNetworks/Facebook/FacebookInterstitial.java" target-dir="src/com/mopub/mobileads" />
 		<source-file src="libs/android/AdNetworks/Facebook/FacebookNative.java" target-dir="src/com/mopub/nativeads" />
-        <source-file src="libs/android/AdNetworks/Facebook/AudienceNetwork.jar" target-dir="libs" />
+        <lib-file src="libs/android/AdNetworks/Facebook/AudienceNetwork.jar" />
 			<!-- GooglePlay Services -->    
 		<source-file src="libs/android/AdNetworks/GooglePlay/GooglePlayServicesBanner.java" target-dir="src/com/mopub/mobileads" />
 		<source-file src="libs/android/AdNetworks/GooglePlay/GooglePlayServicesInterstitial.java" target-dir="src/com/mopub/mobileads" />    
@@ -54,21 +54,21 @@
 		<source-file src="libs/android/AdNetworks/InMobi/InMobiBanner.java" target-dir="src/com/mopub/simpleadsdemo" />
 		<source-file src="libs/android/AdNetworks/InMobi/InMobiInterstitial.java" target-dir="src/com/mopub/simpleadsdemo" />
 		<source-file src="libs/android/AdNetworks/InMobi/InMobiNative.java" target-dir="src/com/mopub/nativeads" />     			
-        <source-file src="libs/android/AdNetworks/InMobi/InMobi.jar" target-dir="libs" />
+        <lib-file src="libs/android/AdNetworks/InMobi/InMobi.jar" />
 			<!-- Millennial --> 
 		<source-file src="libs/android/AdNetworks/Millennial/MillennialBanner.java" target-dir="src/com/mopub/mobileads" />
 		<source-file src="libs/android/AdNetworks/Millennial/MillennialInterstitial.java" target-dir="src/com/mopub/mobileads" />
         <source-file src="libs/android/AdNetworks/Millennial/armeabi/libnmsp_speex.so" target-dir="libs/armeabi" />
-        <source-file src="libs/android/AdNetworks/Millennial/MMSDK.jar" target-dir="libs" />
-        <source-file src="libs/android/AdNetworks/Millennial/nmdp_speech_kit.jar" target-dir="libs" />
+        <lib-file src="libs/android/AdNetworks/Millennial/MMSDK.jar" />
+        <lib-file src="libs/android/AdNetworks/Millennial/nmdp_speech_kit.jar" />
 			<!-- Vungle -->       
 		<source-file src="libs/android/AdNetworks/Vungle/VungleInterstitial.java" target-dir="src/com/mopub/mobileads" />
 		<source-file src="libs/android/AdNetworks/Vungle/VungleRewardedVideo.java" target-dir="src/com/mopub/mobileads" />
-        <source-file src="libs/android/AdNetworks/Vungle/dagger-1.2.2.jar" target-dir="libs" />
-        <source-file src="libs/android/AdNetworks/Vungle/javax.inject-1.jar" target-dir="libs" />
-        <source-file src="libs/android/AdNetworks/Vungle/nineoldandroids-2.4.0.jar" target-dir="libs" />
-        <source-file src="libs/android/AdNetworks/Vungle/support-v4-18.0.0.jar" target-dir="libs" />
-        <source-file src="libs/android/AdNetworks/Vungle/vungle-publisher-adaptive-id-3.3.0.jar" target-dir="libs" />
+        <lib-file src="libs/android/AdNetworks/Vungle/dagger-1.2.2.jar" />
+        <lib-file src="libs/android/AdNetworks/Vungle/javax.inject-1.jar" />
+        <lib-file src="libs/android/AdNetworks/Vungle/nineoldandroids-2.4.0.jar" />
+        <lib-file src="libs/android/AdNetworks/Vungle/support-v4-18.0.0.jar" />
+        <lib-file src="libs/android/AdNetworks/Vungle/vungle-publisher-adaptive-id-3.3.0.jar" />
 
         <!-- google play services -->
         <framework src="com.google.android.gms:play-services-plus:+" />
