@@ -12,9 +12,17 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import android.util.Log;
+import android.view.View;
+import java.util.Iterator;
 
-import com.mopub.mobileads.MoPubErrorCode;
+
+import com.mopub.mobileads.MoPubView;
 import com.mopub.mobileads.MoPubInterstitial;
+import com.mopub.mobileads.MoPubErrorCode;
 import static com.mopub.mobileads.MoPubInterstitial.InterstitialAdListener;
 
 

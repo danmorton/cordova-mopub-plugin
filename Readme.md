@@ -43,8 +43,9 @@ iOS Mopub SDK Compilation
 
 Android Mopub SDK Compilation
 
-- Open Latest Android SDK in Android Studio
-- Compile to jar file
+- Download latest SDK from ```https://github.com/mopub/mopub-android-sdk```
+- Open in Android Studio
+- Compile to aar file
 
 INSTALLATION
 -------------

@@ -31,7 +31,7 @@
         <source-file src="src/android/MopubPlugin.java" target-dir="src/com/danmorton/cordova/plugin/mopub" />
 		        
 		<!-- mopub's official plugin -->    
-        <lib-file src="libs/android/mopub-sdk.jar" />
+        <lib-file src="libs/android/mopub-sdk.aar" />
 		<!-- mopub custom networks -->
 			<!-- AdColony -->		
 		<source-file src="libs/android/AdNetworks/AdColony/AdColonyInterstitial.java" target-dir="src/com/mopub/mobileads" />
