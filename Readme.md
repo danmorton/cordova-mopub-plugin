@@ -46,6 +46,7 @@ Android Mopub SDK Compilation
 - Download latest SDK from ```https://github.com/mopub/mopub-android-sdk```
 - Open in Android Studio
 - Compile to aar file
+- follow correct answer to ```http://stackoverflow.com/questions/21417419/how-to-convert-aar-to-jar```
 
 INSTALLATION
 -------------

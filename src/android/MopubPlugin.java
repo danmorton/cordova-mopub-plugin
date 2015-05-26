@@ -87,7 +87,7 @@ public class MopubPlugin extends CordovaPlugin implements InterstitialAdListener
 		CallbackContext callContext = callbackMap.get( funcId );
 		if (callContext != null) {
 			callbackMap.remove( funcId );//remove our callback from queue
-			callContext.success("{\"location\": \""+location+"\",\"function\": \""+funcId+"\"}");
+			callContext.success("{\"function\": \""+funcId+"\"}");
 		}
 	}
 	/** 
@@ -98,26 +98,29 @@ public class MopubPlugin extends CordovaPlugin implements InterstitialAdListener
 		CallbackContext callContext = callbackMap.get( funcId );
 		if (callContext != null) {
 			callbackMap.remove( funcId );//remove our callback from queue
-			callContext.error("{\"location\": \""+location+"\",\"function\": \""+funcId+"\"}");
+			callContext.error("{\"function\": \""+funcId+"\"}");
 		}
 	}
 
 	/**
 	 * Fire event for js
 	 * @param eventName (string) name to fire
-	 * @param json (json) data to pass
+	 * <!-- @param json (json) data to pass , JSONObject json -->
 	 */
-	public void fireEvent(String eventName, JSONObject json) throws JSONException {
-
-		String namespace = "mopub";
-		String event  = "cordova.fireWindowEvent('"+ namespace +"."+ eventName +"');";		
-		if (json != null)
-			event  = "cordova.fireWindowEvent('"+ namespace +"."+ eventName +"', "+ json.toString() +");";
-		String js = "setTimeout(function() { "+ event +" }, 0)";
-		if (webView != null) {
-			webView.sendJavascript(js);
-		} else {
-			Log.v(TAG + ":fireEvent", "webView is null!");
+	public void fireEvent(String eventName) {
+		try {
+			String namespace = "mopub";
+			String event  = "cordova.fireWindowEvent('"+ namespace +"."+ eventName +"');";
+//		if (json != null)
+//			event  = "cordova.fireWindowEvent('"+ namespace +"."+ eventName +"', "+ json.toString() +");";
+			String js = "setTimeout(function() { "+ event +" }, 0)";
+			if (webView != null) {
+				webView.sendJavascript(js);
+			} else {
+				Log.v(TAG + ":fireEvent", "webView is null!");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -135,7 +138,7 @@ public class MopubPlugin extends CordovaPlugin implements InterstitialAdListener
 		}
 	}
 
-	public void preloadInterstitial(java.lang.String location, CallbackContext callback) {
+	public void preloadInterstitial(java.lang.String ad_unit, CallbackContext callback) {
 		this.registerCallback(callback, ACTION_CACHE_INTERSTITIAL);
 		if (mMoPubInterstitial == null) {
 			mMoPubInterstitial = new MoPubInterstitial(cordova.getActivity(), ad_unit);
@@ -150,30 +153,30 @@ public class MopubPlugin extends CordovaPlugin implements InterstitialAdListener
 	// InterstitialAdListener implementation
     @Override
     public void onInterstitialLoaded(MoPubInterstitial interstitial) {
-		this.doSuccessCallback(location, ACTION_CACHE_INTERSTITIAL);
+		this.doSuccessCallback(ACTION_CACHE_INTERSTITIAL);
     }
 
     @Override
     public void onInterstitialFailed(MoPubInterstitial interstitial, MoPubErrorCode errorCode) {
-		this.doFailureCallback(location, ACTION_CACHE_INTERSTITIAL);
-		this.doFailureCallback(location, ACTION_SHOW_INTERSTITIAL);
+		this.doFailureCallback(ACTION_CACHE_INTERSTITIAL);
+		this.doFailureCallback(ACTION_SHOW_INTERSTITIAL);
 //		mMoPubInterstitial.load();//load another one? could be loop?
     }
 
     @Override
     public void onInterstitialShown(MoPubInterstitial interstitial) {
-		this.fireEvent("interstitialShown", null);
-		this.doSuccessCallback(location, ACTION_SHOW_INTERSTITIAL);
+		this.fireEvent("interstitialShown");
+		this.doSuccessCallback(ACTION_SHOW_INTERSTITIAL);
     }
 
     @Override
     public void onInterstitialClicked(MoPubInterstitial interstitial) {
-		this.fireEvent("interstitialClicked", null);
+		this.fireEvent("interstitialClicked");
     }
 
     @Override
     public void onInterstitialDismissed(MoPubInterstitial interstitial) {
-		this.fireEvent("interstitialDismissed", null);
+		this.fireEvent("interstitialDismissed");
 		mMoPubInterstitial.load();//load another one...
     }
 }
